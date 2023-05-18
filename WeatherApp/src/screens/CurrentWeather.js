@@ -38,7 +38,7 @@ const CurrentWeather = () => {
       <RowText
         rowWrapper={bodyWrapper}
         rowTextStyle1={description}
-        rowText1={"Its sunny"}
+        rowText1={"Its very sunny"}
         rowTextStyle2={message}
         rowText2={"Its perfect t-shirt weather"}
       />
