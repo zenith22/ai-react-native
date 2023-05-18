@@ -27,8 +27,8 @@ const CurrentWeather = () => {
         <Text style={feels}>Feels like 5</Text>
 
         <RowText
-          rowText1={"High : 8"}
-          rowText2={"Low:6"}
+          rowText1={"High : 80"}
+          rowText2={"Low:60"}
           rowWrapper={highLowWrapper}
           rowTextStyle1={highLow}
           rowTextStyle2={highLow}
