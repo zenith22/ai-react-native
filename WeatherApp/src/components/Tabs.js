@@ -7,7 +7,7 @@ import { Feather } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 
-const currentWeatherIcon = (focused) => {
+const currentWeatherIcon = ({ focused }) => {
   return (
     <Feather name="droplet" size={24} color={focused ? "tomato" : "black"} />
   );
@@ -29,6 +29,17 @@ const Tabs = () => {
       screenOptions={{
         tabBarActiveTintColor: "tomato",
         tabBarInactiveTintColor: "grey",
+        tabBarStyle: {
+          backgroundColor: "lightblue",
+        },
+        headerStyle: {
+          backgroundColor: "lightblue",
+        },
+        headerTitleStyle: {
+          fontWeight: "bold",
+          fontSize: 25,
+          color: "tomato",
+        },
       }}
     >
       <Tab.Screen
