@@ -10,66 +10,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import ListItem from "../components/ListItem";
 
-const DATA = [
-  {
-    main: {
-      temp_min: 296.76,
-      temp_max: 297.87,
-    },
-    weather: [
-      {
-        id: 500,
-        main: "Rain",
-        description: "light rain",
-      },
-    ],
-    dt_txt: "2022-08-30 15:00:00",
-  },
-  {
-    main: {
-      temp_min: 292.84,
-      temp_max: 295.45,
-    },
-    weather: [
-      {
-        id: 500,
-        main: "Rain",
-        description: "light rain",
-      },
-    ],
-    dt_txt: "2022-08-30 18:00:00",
-  },
-  {
-    main: {
-      temp_min: 290.31,
-      temp_max: 292.46,
-    },
-    weather: [
-      {
-        id: 500,
-        main: "Rain",
-        description: "light rain",
-      },
-    ],
-    dt_txt: "2022-08-30 21:00:00",
-  },
-  {
-    main: {
-      temp_min: 294.93,
-      temp_max: 294.93,
-    },
-    weather: [
-      {
-        id: 804,
-        main: "Clouds",
-        description: "overcast clouds",
-      },
-    ],
-    dt_txt: "2022-09-04 12:00:00",
-  },
-];
-
-const UpcomingWeather = () => {
+const UpcomingWeather = ({weatherData}) => {
   const renderItem = ({ item }) => {
     return (
       <ListItem
@@ -96,9 +37,8 @@ const UpcomingWeather = () => {
         source={require("../../assets/cloudy.jpg")}
         style={image}
       >
-        <Text style={titleText}>Upcoming Weather</Text>
         <FlatList
-          data={DATA}
+          data={weatherData}
           renderItem={renderItem}
           keyExtractor={keyId}
           //ItemSeparatorComponent={Divider}
