@@ -1,16 +1,17 @@
-import React from "react";
+import React from 'react';
 import {
   View,
   Text,
   StyleSheet,
   ImageBackground,
   StatusBar,
-} from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Feather } from "@expo/vector-icons";
-import IconText from "../components/IconText";
+} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Feather } from '@expo/vector-icons';
+import IconText from '../components/IconText';
+import moment from 'moment';
 
-const City = () => {
+const City = ({ weatherData }) => {
   const {
     container,
     image,
@@ -21,34 +22,36 @@ const City = () => {
     populationText,
     sunText,
     sunWrapper,
-    iconTextLayout
+    iconTextLayout,
   } = styles;
+
+  const { name, country, sunrise, sunset, population } = weatherData;
 
   return (
     <SafeAreaView style={container}>
-      <StatusBar barStyle={"light-content"} backgroundColor={"midnightblue"} />
-      <ImageBackground style={image} source={require("../../assets/city.jpeg")}>
-        <Text style={[cityname, text]}>Cityname</Text>
-        <Text style={[countryname, text]}>Countryname</Text>
+      <StatusBar barStyle={'light-content'} backgroundColor={'midnightblue'} />
+      <ImageBackground style={image} source={require('../../assets/city.jpeg')}>
+        <Text style={[cityname, text]}>{name}</Text>
+        <Text style={[countryname, text]}>{country}</Text>
         <View style={[populationWrapper, iconTextLayout]}>
           <IconText
-            iconName={"user"}
-            iconColor={"red"}
-            bodyText={"8000"}
+            iconName={'user'}
+            iconColor={'red'}
+            bodyText={`Population : ${population}`}
             bodyTextStyle={populationText}
           />
         </View>
         <View style={[sunWrapper, iconTextLayout]}>
           <IconText
-            iconName={"sunrise"}
-            iconColor={"white"}
-            bodyText={"7:44:22am"}
+            iconName={'sunrise'}
+            iconColor={'white'}
+            bodyText={moment(sunrise).format('h:mm:ss a')}
             bodyTextStyle={sunText}
           />
           <IconText
-            iconName={"sunset"}
-            iconColor={"white"}
-            bodyText={"20:55:5pm"}
+            iconName={'sunset'}
+            iconColor={'white'}
+            bodyText={moment(sunset).format('h:mm:ss a')}
             bodyTextStyle={sunText}
           />
         </View>
@@ -67,33 +70,33 @@ const styles = StyleSheet.create({
   cityname: { fontSize: 40 },
   countryname: { fontSize: 30 },
   text: {
-    justifyContent: "center",
-    alignSelf: "center",
-    fontWeight: "bold",
-    color: "white",
+    justifyContent: 'center',
+    alignSelf: 'center',
+    fontWeight: 'bold',
+    color: 'white',
   },
   populationWrapper: {
-    justifyContent: "center",
+    justifyContent: 'center',
     marginTop: 30,
   },
   populationText: {
     fontSize: 25,
     marginStart: 8,
-    color: "red",
-    fontWeight: "bold",
+    color: 'red',
+    fontWeight: 'bold',
   },
   sunWrapper: {
-    justifyContent: "space-around",
+    justifyContent: 'space-around',
     marginTop: 30,
   },
   sunText: {
     fontSize: 20,
-    color: "white",
-    fontWeight: "bold",
+    color: 'white',
+    fontWeight: 'bold',
   },
   iconTextLayout: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
 

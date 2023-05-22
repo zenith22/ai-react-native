@@ -53,11 +53,9 @@ const Tabs = ({ weather }) => {
       <Tab.Screen name='Upcoming' options={{ tabBarIcon: upcomingWeatherIcon }}>
         {() => <UpcomingWeather weatherData={weather.list} />}
       </Tab.Screen>
-      <Tab.Screen
-        name='City'
-        component={City}
-        options={{ tabBarIcon: cityIcon }}
-      />
+      <Tab.Screen name='City' options={{ tabBarIcon: cityIcon }}>
+        {() => <City weatherData={weather.city} />}
+      </Tab.Screen>
     </Tab.Navigator>
   );
 };
